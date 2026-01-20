@@ -1,0 +1,46 @@
+﻿@using WebApplication_Templeto_F777.ViewModels.ChefViewModels
+@model List<ChefGetVM>
+
+<div class="container">
+<div class="row">
+    <div class="row-2">
+     <a asp-action="Create" class="btn btn-success">Create</a>
+
+    </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Profession Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var chef in Model)
+                {
+                      <tr>
+                    <th scope="row">@chef.Id</th>
+                    <td><img src="~/images/@chef.ImagePath"/></td>
+                    <td>@chef.Name</td>
+                    <td>@chef.Description</td>
+                    <td>@chef.ProfessionName</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@chef.Id" class="btn btn-danger">Update</a>
+                            <a asp-action="Delete" asp-route-id="@chef.Id" class="btn btn-warning">Delete</a>
+                    </td>
+
+                </tr>
+                }
+
+              
+             
+            </tbody>
+        </table>
+
+</div>    
+
+</div>
