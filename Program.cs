@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication_Templeto_F777.Context;
+using WebApplication_Templeto_F777.Models;
 
 namespace WebApplication_Templeto_F777
 {
@@ -15,6 +17,10 @@ namespace WebApplication_Templeto_F777
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
             });
+            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
             var app = builder.Build();
 

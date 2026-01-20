@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 using System.Reflection;
 using WebApplication_Templeto_F777.Models;
 
 namespace WebApplication_Templeto_F777.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext :IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
